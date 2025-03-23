@@ -19,6 +19,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToAboutUs = () => {
+    const footer = document.getElementById('about-us-section');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.nav 
       className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 ${
@@ -44,9 +51,14 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">
           <a href="#" className="text-skillbee-brown font-medium hover:text-skillbee-orange transition-colors">Log in</a>
           <a href="#" className="text-skillbee-brown font-medium hover:text-skillbee-orange transition-colors">English</a>
-          <a href="#" className="text-skillbee-brown font-medium hover:text-skillbee-orange transition-colors">About Us</a>
           <a href="#" className="text-skillbee-brown font-medium hover:text-skillbee-orange transition-colors">Profile</a>
           <a href="#" className="text-skillbee-brown font-medium hover:text-skillbee-orange transition-colors">Dashboard</a>
+          <button 
+            onClick={scrollToAboutUs}
+            className="text-skillbee-brown font-medium hover:text-skillbee-orange transition-colors"
+          >
+            About Us
+          </button>
         </div>
         <div className="md:hidden flex items-center">
           <Button variant="ghost" size="icon" className="text-skillbee-brown">
